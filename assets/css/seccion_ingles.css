@@ -1,0 +1,822 @@
+/* ============================================================
+   SISTEMA DE VARIABLES GLOBALES (:root)
+   ============================================================ */
+   :root {
+    /* --- PALETA DE COLORES BASE --- */
+    --azul-claro: #e6f3ff;        /* Fondo suave para áreas de descanso visual */
+    --azul-medio: #0066cc;        /* Color para botones y enlaces primarios */
+    --azul-oscuro: #003366;       /* Identidad de marca para Header y Footer */
+    --azul-muy-oscuro: #001f3f;   /* Usado en gradientes profundos */
+    
+    --blanco-claro: #ffffff;      /* Blanco puro para textos y tarjetas */
+    --blanco-medio: #f5f8fa;      /* Grisáceo muy leve para fondos */
+    --blanco-oscuro: #ddd;         /* Gris claro para bordes y separadores */
+    
+    --gris-claro: #f5f8fa;        /* Fondo alternativo para widgets */
+    --gris-medio: #ccc;           /* Color para bordes secundarios */
+    --gris-oscuro: #aaa;          /* Texto de menor importancia */
+    --gris-muy-oscuro: #333333;   /* Texto principal (alta legibilidad) */
+    
+    --naranja-claro: #ffb74d;     /* Color de acento suave */
+    --naranja-oscuro: #ff9900;    /* Color de llamado a la acción (CTA) */
+    --naranja: #ff9900;           /* Variable estándar de naranja */
+    --rosa-claro: #ff4da6;        /* Color estético para gradientes */
+    --rosa-medio: #FF69B4;        /* Rosa vibrante */
+    --rojo-claro: #ff0000;        /* Color de alerta/error */
+    --rojo-medio: #FF0000;        /* Alias para consistencia de color */
+    --verde-claro: #4caf50;       /* Color para éxitos o confirmaciones */
+    --amarillo-claro: #ffc;       /* Fondo para campos de entrada destacados */
+
+    /* --- GRADIENTES --- */
+    /* El 135deg indica la inclinación diagonal de la transición de color */
+    --gradiente-blanco-azul: linear-gradient(135deg, var(--blanco-oscuro), var(--azul-muy-oscuro));
+    --gradiente-azul-naranja: linear-gradient(135deg, var(--azul-muy-oscuro), var(--naranja-claro));
+    --gradiente-azul-rosa: linear-gradient(135deg, var(--azul-muy-oscuro), var(--rosa-claro));
+    --gradiente-azul-rojo: linear-gradient(135deg, var(--azul-muy-oscuro), var(--rojo-claro));
+    --gradiente-azul-rosa-horizontal: linear-gradient(to right, var(--azul-medio), var(--rosa-medio));
+    --gradiente-azul-rojo-horizontal: linear-gradient(to right, var(--azul-medio), var(--rojo-medio));
+
+    /* --- VARIABLES DE DISEÑO (DIMENSIONES) --- */
+    /* clamp(min, ideal, max) ajusta el valor según el tamaño de la pantalla automáticamente */
+    --padding-contenedor: clamp(1rem, 3vw, 2rem); 
+    --gap-elementos: clamp(0.5rem, 2vw, 1.5rem);  
+    --border-radius: 0.5rem;                       /* Redondeo de 8px */
+    --radius: 0.5rem;                              /* Alias de redondeo */
+    --transition: all 0.3s ease;                   /* Tiempo estándar para animaciones hover */
+    --max-width-contenido: 90%;                    /* El diseño no se pegará a los bordes laterales */
+
+    /* --- MAPEO FUNCIONAL (TEMA CLARO DEFAULT) --- */
+    --color-fondo: var(--gradiente-blanco-azul);   /* Fondo dinámico de la página */
+    --color-texto: var(--gris-muy-oscuro);         /* Color de lectura */
+    --color-texto-claro: var(--blanco-claro);      /* Texto sobre fondos azules/negros */
+    --color-header: var(--azul-oscuro);            /* Color sólido del encabezado */
+    --color-footer: var(--azul-oscuro);            /* Color sólido del pie de página */
+    --color-sidebar-left: var(--verde-claro);      /* Color de soporte izquierdo */
+    --color-sidebar-right: var(--naranja-oscuro);   /* Color de soporte derecho */
+    --color-widget: var(--azul-medio);             /* Fondo de bloques de información */
+    --color-widget-3-4: var(--gris-medio);         /* Variación de widgets */
+    --color-input: var(--amarillo-claro);          /* Fondo de inputs */
+    --color-terciario: var(--azul-claro);          /* Fondos de secciones internas */
+    --color-acento: var(--naranja-oscuro);         /* Elementos que deben resaltar */
+    --color-primario: var(--azul-oscuro);          /* Identidad principal */
+    --color-secundario: var(--azul-medio);         /* Identidad secundaria */
+    --bg-card: var(--blanco-claro);                /* Fondo de tarjetas de contenido */
+}
+
+/* --- TEMA OSCURO (OVERRIDE) --- */
+/* Se activa cuando el elemento raíz tiene [data-theme="dark"] */
+[data-theme="dark"] {
+    --color-fondo: linear-gradient(135deg, #1a1a2a, #0a0a1a); /* Fondo noche */
+    --color-texto: var(--blanco-claro);            /* Invertir texto para lectura */
+    --color-texto-claro: var(--azul-claro);        /* Azul suave para resaltar en oscuro */
+    --color-header: #0a0a2a;                       /* Header azul casi negro */
+    --color-footer: #0a0a2a;                       /* Footer azul casi negro */
+    --color-sidebar-left: #2d7a30;                 /* Verdes más oscuros */
+    --color-sidebar-right: #d47a1e;                /* Naranjas quemados */
+    --color-widget: #3a7ebd;                       /* Azul eléctrico */
+    --color-widget-3-4: #444;                      /* Grises profundos */
+    --color-input: #333;                           /* Inputs oscuros */
+    --color-terciario: #1a2a4a;                    /* Azul marino para secciones */
+    --color-acento: #ffaa33;                       /* Acento más brillante para contraste */
+    --color-primario: #002244;                     /* Azul medianoche */
+    --color-secundario: #004488;                   /* Azul real profundo */
+    --gris-claro: #2a2a4a;                         /* Redefinición de grises para modo noche */
+    --gris-medio: #444;
+    --gris-oscuro: #666;
+    --blanco-oscuro: #444;
+    --blanco-claro: #f0f0f0;                       /* Blanco ligeramente grisáceo */
+    --bg-card: #2a2a4a;                            /* Tarjetas en color oscuro */
+}
+
+/* ============================================================
+   RESETEO Y ESTILOS BASE
+   ============================================================ */
+* {
+    margin: 0;                                     /* Elimina espacios externos de todos los elementos */
+    padding: 0;                                    /* Elimina rellenos internos de todos los elementos */
+    box-sizing: border-box;                        /* El tamaño del elemento incluye padding y bordes */
+}
+
+body {
+    font-family: 'Arial', sans-serif;              /* Fuente estándar legible */
+    background: var(--color-fondo);                /* Aplica el fondo dinámico definido arriba */
+    color: var(--color-texto);                     /* Aplica el color de texto según el tema */
+    min-height: 100vh;                             /* El body ocupará siempre el alto total de pantalla */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave al cambiar de tema */
+    line-height: 1.6;                              /* Espaciado cómodo entre líneas de texto */
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.contenedor {
+    display: grid;                                 /* Activa el sistema de rejilla */
+    grid-template-columns: minmax(0, 1fr);         /* Columna única que se adapta al espacio */
+    gap: var(--gap-elementos);                     /* Espacio entre bloques del grid */
+    padding: var(--padding-contenedor);            /* Relleno dinámico a los lados */
+    max-width: var(--max-width-contenido);         /* Evita que el contenido sea demasiado ancho */
+    margin: 0 auto;                                /* Centra el bloque horizontalmente */
+    width: 100%;
+}
+
+/* ============================================================
+   CABECERA (HEADER) Y LOGO
+   ============================================================ */
+header {
+    background-color: var(--color-header);         /* Fondo según tema claro/oscuro */
+    padding: 1rem var(--padding-contenedor);       /* Relleno vertical y horizontal dinámico */
+    display: flex;                                 /* Alinea logo y toggle en línea */
+    align-items: center;                           /* Centrado vertical */
+    justify-content: space-between;                /* Logo izquierda, botón derecha */
+    border-radius: var(--border-radius);           /* Redondeo de esquinas */
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);      /* Sombra para dar profundidad */
+}
+
+.logo-container {
+    display: flex;                                 /* Alinea la imagen y el h1 del logo */
+    align-items: center;
+    text-decoration: none;                         /* Quita subrayado del link */
+    color: var(--color-texto-claro);               /* Texto en color claro */
+    gap: 1rem;                                     /* Espacio entre imagen y texto */
+    transition: var(--transition);                 /* Animación para el hover */
+}
+
+.logo-container:hover {
+    transform: scale(1.02);                        /* Efecto de ligero crecimiento */
+}
+
+.logo-img {
+    width: 50px;                                   /* Tamaño fijo del logo */
+    height: 50px;
+    border-radius: 50%;                            /* Imagen circular */
+    object-fit: cover;                             /* Evita que la imagen se deforme */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);      /* Sombra para la imagen */
+    border: 2px solid var(--color-acento);         /* Borde naranja de marca */
+}
+
+/* --- TOGGLE DE MODO OSCURO (BOTÓN) --- */
+.theme-toggle {
+    background: var(--color-acento);               /* Fondo naranja */
+    border: none;
+    border-radius: 50%;                            /* Botón redondo */
+    width: 40px;
+    height: 40px;
+    cursor: pointer;                               /* Cursor de mano al pasar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primario);                  /* Color del icono */
+    font-size: 1.2rem;                             /* Tamaño del emoji/icono */
+    transition: var(--transition);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle:hover {
+    transform: rotate(360deg);                     /* El botón gira sobre sí mismo */
+    background: var(--color-secundario);           /* Cambia a azul al pasar el mouse */
+    color: var(--color-texto-claro);               /* Icono pasa a blanco */
+}
+
+/* ============================================================
+   NAVEGACIÓN (MENÚ)
+   ============================================================ */
+nav {
+    background: linear-gradient(to right, var(--color-secundario), var(--color-primario)); /* Gradiente azul de marca */
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;                              /* Se queda pegado arriba al hacer scroll */
+    top: 0;                                        /* Posición donde se queda pegado */
+    z-index: 1000;                                 /* Por encima del resto del contenido */
+    width: 100%;
+}
+
+nav ul {
+    display: flex;                                 /* Alinea items en línea */
+    flex-wrap: wrap;                               /* Permite bajar items si no caben */
+    list-style: none;                              /* Quita los puntos de la lista */
+    justify-content: center;                       /* Centra los enlaces */
+    padding: 0;
+}
+
+nav a {
+    color: var(--color-texto-claro);               /* Texto blanco */
+    text-decoration: none;
+    font-weight: 500;                              /* Letra de grosor medio */
+    padding: 1.2rem 2rem;                          /* Área de clic amplia */
+    display: block;                                /* Ocupa todo el bloque */
+    transition: var(--transition);
+    position: relative;                            /* Necesario para la línea inferior animada */
+}
+
+/* Línea naranja que aparece al pasar el mouse por el menú */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;                                      /* Empieza con ancho 0 */
+    height: 2px;
+    background-color: var(--color-acento);         /* Línea naranja */
+    transition: var(--transition);
+    transform: translateX(-50%);                   /* Centra la línea respecto al link */
+}
+
+nav a:hover::after {
+    width: 80%;                                    /* Se expande al 80% del texto */
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);    /* Fondo blanco transparente */
+}
+
+/* ============================================================
+   CONTENIDO PRINCIPAL Y PESTAÑAS (TABS)
+   ============================================================ */
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--gap-elementos);
+    width: 100%;
+}
+
+.botones {
+    display: flex;                                 /* Botones en línea */
+    justify-content: space-around;                 /* Espaciado uniforme */
+    gap: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    border-radius: var(--border-radius);
+    background: var(--color-terciario);            /* Fondo azul claro */
+    min-height: 10rem;                             /* Altura mínima de la barra de botones */
+    padding: 1rem;
+    align-items: center;                           /* Centrado vertical */
+    flex-wrap: wrap;                               /* Adaptable a móviles */
+}
+
+.botones button {
+    padding: 0.75rem 1.5rem;                       /* Tamaño del botón */
+    background-color: var(--color-acento);         /* Fondo naranja */
+    color: var(--color-primario);                  /* Texto azul oscuro */
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    flex: 1;                                       /* Los botones intentan medir lo mismo */
+    max-width: 200px;                              /* Pero no crecen más de 200px */
+    font-weight: bold;                             /* Letra negrita */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+}
+
+.botones button:hover {
+    background-color: var(--color-secundario);     /* Cambia a azul medio */
+    color: var(--color-texto-claro);               /* Texto a blanco */
+    transform: translateY(-2px);                   /* Efecto de elevación */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón que representa la sección abierta actualmente */
+.botones button.active {
+    background-color: var(--color-secundario);     /* Se queda azul */
+    color: var(--color-texto-claro);               /* Texto blanco */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* --- SECCIONES --- */
+.seccion {
+    display: none;                                 /* Ocultas por defecto */
+    padding: 1.5rem;
+    background-color: var(--color-terciario);      /* Fondo azul claro / marino según tema */
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    color: var(--color-texto);
+}
+
+/* Clase inyectada por JavaScript para mostrar la sección */
+.seccion.visible {
+    display: block;                                /* Se hace visible */
+    animation: fadeIn 0.5s ease;                   /* Efecto de entrada suave */
+}
+
+/* Animación de entrada suave desde abajo */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.seccion h2 {
+    text-align: center;                            /* Títulos de sección centrados */
+    color: var(--color-primario);
+    margin-bottom: 1.5rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);           /* Tamaño escalable */
+}
+
+.seccion h3 {
+    color: var(--color-secundario);
+    margin: 1rem 0 0.5rem;
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+}
+
+.seccion p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* ============================================================
+   GRID DE TARJETAS (CURSOS/SERVICIOS)
+   ============================================================ */
+.tarjetas-contenedor {
+    display: grid;                                 /* Activa rejilla de 4 columnas */
+    grid-template-columns: repeat(4, 1fr);         /* 4 columnas iguales */
+    gap: var(--gap-elementos);
+    padding: 0;
+    width: 100%;
+}
+
+.tarjeta {
+    background-color: var(--blanco-claro);         /* Fondo blanco */
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;                              /* No deja salir contenido */
+    display: flex;                                 /* Organiza contenido verticalmente */
+    flex-direction: column;
+    align-items: center;                           /* Centra imagen y textos horizontalmente */
+    text-align: center;                            /* Texto centrado */
+    padding: 1.5rem;
+    transition: var(--transition);
+    width: 100%;
+    border: 2px solid transparent;                 /* Borde invisible inicial para evitar saltos */
+}
+
+/* Ajuste de tarjetas para tema oscuro */
+[data-theme="dark"] .tarjeta {
+    background-color: var(--gris-claro);           /* Gris oscuro */
+    border-color: var(--azul-medio);               /* Borde azulado visible */
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);                   /* La tarjeta "flota" al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-color: var(--color-acento);             /* Borde naranja al hover */
+}
+
+.tarjeta img {
+    width: 100px;                                  /* Tamaño fijo circular */
+    height: 100px;
+    border-radius: 50%;                            /* Forma redonda */
+    object-fit: cover;                             /* Ajusta la imagen al círculo */
+    margin-bottom: 1rem;                           /* Espacio bajo la foto */
+    border: 2px solid var(--color-acento);         /* Borde naranja en la foto */
+    transition: var(--transition);
+}
+
+.tarjeta:hover img {
+    transform: scale(1.1);                         /* La foto crece un poco al hover */
+}
+
+.tarjeta h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-primario);
+}
+
+[data-theme="dark"] .tarjeta h3 {
+    color: var(--blanco-claro);                    /* Texto blanco en tarjetas oscuras */
+}
+
+.tarjeta p {
+    font-size: 0.9rem;                             /* Texto de descripción más pequeño */
+    color: var(--color-texto);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    flex-grow: 1;                                  /* El texto empuja el botón hacia abajo */
+}
+
+.tarjeta button {
+    background-color: transparent;                 /* Botón "transparente" con borde */
+    border: 2px solid var(--color-acento);         /* Borde naranja */
+    color: var(--color-acento);                    /* Texto naranja */
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: bold;
+    margin-top: auto;                              /* Alineado al fondo de la tarjeta */
+}
+
+.tarjeta button:hover {
+    background-color: var(--color-acento);         /* Se llena de naranja al hover */
+    color: var(--color-texto-claro);               /* Texto pasa a blanco */
+    transform: scale(1.05);                        /* El botón crece un poco */
+}
+
+/* ============================================================
+   SECCIÓN DE INGLÉS (ESTILOS ESPECÍFICOS)
+   ============================================================ */
+#nav-bar {
+    display: flex;                                 /* Botones en línea */
+    gap: 10px;                                     /* Espacio entre botones de inglés */
+    margin-bottom: 20px;
+    flex-wrap: wrap;                               /* Se adapta a pantallas pequeñas */
+    justify-content: center;                       /* Centra la barra de navegación de inglés */
+}
+
+#nav-bar button {
+    padding: 10px 20px;                            /* Relleno de botones de inglés */
+    background: var(--azul-claro);                 /* Fondo azul suave */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    color: var(--color-primario);
+}
+
+#nav-bar button:hover {
+    background: var(--azul-oscuro);                /* Azul oscuro al hover */
+    color: white;
+}
+
+#nav-bar button.active {
+    background: var(--azul-oscuro);                /* Botón activo azul oscuro */
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);      /* Sombra de resaltado */
+}
+
+.phrase-card {
+    background: var(--bg-card);                    /* Fondo según tema (blanco u oscuro) */
+    padding: 2.5rem;                               /* Relleno interno generoso */
+    border-radius: var(--radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-left: 10px solid var(--naranja);        /* Borde lateral naranja decorativo */
+    margin-bottom: 2rem;
+}
+
+.phrase-card h2 {
+    color: var(--azul-oscuro);
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.phrase-card p {
+    color: gray;                                   /* Texto secundario en gris */
+    font-style: italic;                            /* Estilo cursivo para traducciones */
+}
+
+.phrase-card button {
+    margin-top: 20px;                              /* Botón "Siguiente frase" */
+    padding: 12px 30px;
+    border-radius: 50px;                           /* Botón muy redondeado */
+    border: none;
+    background: var(--azul-oscuro);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.phrase-card button:hover {
+    background: var(--azul-medio);                 /* Cambio de color al hover */
+    transform: scale(1.05);                        /* Zoom leve */
+}
+
+/* Grid para los verbos */
+.verb-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Columnas responsivas automáticas */
+    gap: 1.5rem;
+    margin-top: 20px;
+}
+
+.verb-card {
+    background: var(--bg-card);                    /* Fondo de tarjeta de verbo */
+    border-radius: var(--radius);
+    padding: 1.2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid var(--azul-medio);       /* Borde superior azul decorativo */
+}
+
+.verb-card h3 {
+    color: var(--azul-oscuro);
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+/* Tabla interna de conjugaciones */
+.verb-card table {
+    width: 100%;                                   /* Ocupa todo el ancho de la tarjeta */
+    border-collapse: collapse;                     /* Une bordes de celdas */
+    font-size: 0.75rem;                            /* Texto pequeño para las tablas */
+}
+
+.verb-card td {
+    padding: 6px 2px;                              /* Relleno de cada celda */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);  /* Línea divisoria muy suave */
+}
+
+.verb-card .t-label {
+    font-weight: bold;                             /* Etiquetas (Present, Past) en negrita */
+    color: var(--azul-medio);                      /* Etiquetas en color azul medio */
+    width: 45%;                                    /* Ancho fijo para la columna de etiquetas */
+}
+
+/* Panel de controles (Buscador/Volumen) */
+.controls-aside {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.controls-aside h3 {
+    margin-bottom: 15px;
+    color: var(--azul-oscuro);
+}
+
+.controls-aside input[type="text"] {
+    width: 100%;                                   /* Buscador a ancho completo */
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 10px 0;
+    background: var(--blanco-claro);               /* Fondo claro */
+    color: var(--color-texto);                     /* Texto según tema */
+}
+
+.controls-aside input[type="range"] {
+    width: 100%;                                   /* Barra de volumen a ancho completo */
+    accent-color: var(--naranja);                  /* Color naranja para el control deslizante */
+}
+
+.controls-aside label {
+    display: block;                                /* Etiquetas de control en su propia línea */
+    margin-top: 15px;
+    color: var(--color-texto);
+}
+
+/* Franja de ejemplos gramaticales */
+.examples-strip {
+    background: var(--azul-oscuro);                /* Fondo oscuro contrastado */
+    color: white;
+    padding: 2rem;
+    border-radius: var(--radius);
+    margin-top: 2rem;
+}
+
+.examples-strip h2 {
+    color: var(--naranja);                         /* Título resaltado en naranja */
+    margin-bottom: 1rem;
+}
+
+.examples-strip div {
+    margin-bottom: 1rem;                           /* Espacio entre cada ejemplo */
+    border-left: 3px solid var(--naranja);         /* Borde naranja a la izquierda del ejemplo */
+    padding-left: 10px;                            /* Separación del texto con el borde */
+}
+
+.examples-strip small {
+    opacity: 0.8;                                  /* Texto de la traducción un poco más transparente */
+}
+
+/* ============================================================
+   PIE DE PÁGINA (FOOTER)
+   ============================================================ */
+.footer {
+    background: var(--color-footer);               /* Azul oscuro de marca */
+    color: var(--color-texto-claro);               /* Texto blanco */
+    padding: 2rem;
+    display: grid;                                 /* Activa rejilla de 6 columnas */
+    grid-template-columns: repeat(6, 1fr);         /* 6 columnas iguales */
+    gap: 2rem;                                     /* Espacio entre secciones */
+    align-items: start;                            /* Alinea contenido al tope superior */
+    text-align: left;                              /* Texto a la izquierda */
+    width: 100%;
+    border-radius: var(--border-radius);
+    margin-top: 2rem;
+}
+
+.footer-section {
+    display: flex;                                 /* Alinea contenido verticalmente */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;                                   /* Espacio entre enlaces del footer */
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;                           /* Título de columna del footer */
+    font-size: 1.2rem;
+    color: var(--color-texto-claro);
+    font-weight: bold;
+}
+
+.footer-section a {
+    color: var(--blanco-claro);                    /* Enlaces del footer en blanco */
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 0.9rem;
+}
+
+.footer-section a:hover {
+    color: var(--color-acento);                    /* Enlaces brillan en naranja al pasar mouse */
+}
+
+.footer-section p {
+    color: var(--blanco-claro);                    /* Texto de contacto en blanco */
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+}
+
+.footer-section .social-icons {
+    display: flex;                                 /* Alinea iconos en fila */
+    gap: 0.5rem;
+    font-size: 1.5rem;                             /* Iconos de tamaño grande */
+}
+
+/* Sección de suscripción (Newsletter) */
+.footer-newsletter {
+    grid-column: 1 / -1;                          /* Ocupa todo el ancho del footer (las 6 columnas) */
+    display: flex;                                 /* Centra el formulario */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);    /* Línea divisoria superior */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria inferior */
+}
+
+.footer-newsletter h3 {
+    color: var(--color-texto-claro);
+    margin-bottom: 1rem;
+}
+
+.footer-newsletter form {
+    display: flex;                                 /* Input y botón en columna */
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 400px;                              /* El formulario no crecerá más de esto */
+    width: 100%;
+}
+
+.footer-newsletter label {
+    color: var(--blanco-claro);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-newsletter input {
+    padding: 0.75rem;                              /* Tamaño interno para escribir cómodo */
+    border: none;
+    border-radius: 5px;                            /* Redondeo del campo */
+    width: 100%;
+    background: var(--blanco-claro);               /* Fondo blanco en tema claro */
+    color: var(--color-texto);                     /* Texto oscuro al escribir */
+}
+
+/* Ajuste del input en modo noche */
+[data-theme="dark"] .footer-newsletter input {
+    background: var(--gris-medio);                 /* Fondo gris oscuro */
+    color: var(--blanco-claro);                    /* Texto claro al escribir */
+    border: 1px solid var(--azul-medio);           /* Borde azul decorativo */
+}
+
+.footer-newsletter button {
+    padding: 0.75rem 1.5rem;                       /* Tamaño del botón de suscripción */
+    background-color: var(--color-acento);         /* Fondo naranja */
+    color: var(--color-primario);                  /* Texto azul oscuro */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap;                           /* El texto "Suscribirse" no bajará de línea */
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.footer-newsletter button:hover {
+    background-color: #ffcc33;                     /* Naranja más claro al hover */
+    transform: translateY(-2px);                   /* El botón "salta" un poco */
+}
+
+/* Fila de derechos reservados */
+.footer-copyright {
+    grid-column: 1 / -1;                          /* Ocupa todo el ancho inferior */
+    text-align: center;                            /* Texto centrado */
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--blanco-claro);
+    font-size: 0.9rem;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN (MEDIA QUERIES)
+   ============================================================ */
+
+/* TABLET: Pantallas medianas (iPad, etc.) */
+@media (max-width: 1024px) {
+    .footer {
+        grid-template-columns: repeat(2, 1fr);    /* El footer pasa de 6 columnas a solo 2 */
+    }
+    .footer-section {
+        grid-column: span 1;                      /* Cada sección ocupa una de las 2 columnas */
+    }
+    .tarjetas-contenedor {
+        grid-template-columns: repeat(2, 1fr);    /* Las tarjetas pasan de 4 a 2 por fila */
+    }
+    .verb-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Tarjetas de verbos más pequeñas */
+    }
+}
+
+/* MÓVIL: Pantallas pequeñas (Smartphones) */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;                   /* El menú nav se vuelve vertical */
+    }
+    nav a {
+        text-align: center;                        /* Texto de enlaces centrado */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria entre links */
+    }
+    nav a:last-child {
+        border-bottom: none;                       /* El último enlace no tiene borde */
+    }
+    .botones {
+        flex-direction: column;                   /* Los botones de pestañas se apilan verticalmente */
+        align-items: center;
+    }
+    .botones button {
+        max-width: 100%;                          /* Botones al 100% del ancho del móvil */
+        width: 100%;
+    }
+    .footer {
+        grid-template-columns: 1fr;               /* Footer en una sola columna vertical */
+        padding: 1.5rem;
+    }
+    .footer-section {
+        grid-column: 1;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Divisor entre secciones de footer */
+        padding-bottom: 1.5rem;
+        align-items: center;                       /* Centra todo el texto del footer */
+        text-align: center;
+    }
+    .footer-section:last-child {
+        border-bottom: none;                       /* Sin línea para el último bloque del footer */
+    }
+    .footer-newsletter form {
+        gap: 1rem;
+    }
+    .footer-newsletter input {
+        width: 80%;                               /* Acorta un poco el input para que no pegue a los bordes */
+    }
+    .footer-newsletter button {
+        width: 80%;                               /* El botón mide lo mismo que el input */
+    }
+    .footer-copyright {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .tarjetas-contenedor {
+        grid-template-columns: 1fr;               /* 1 sola tarjeta por fila en móviles */
+    }
+    .verb-grid {
+        grid-template-columns: 1fr;               /* 1 sola tarjeta de verbos por fila */
+    }
+    #nav-bar {
+        flex-direction: column;                   /* Barra de inglés vertical en móvil */
+        align-items: center;
+    }
+}
+
+/* SMARTPHONES MUY PEQUEÑOS */
+@media (max-width: 480px) {
+    .logo-container h1 {
+        font-size: 1.2rem;                        /* Reduce el tamaño del nombre para que no se corte */
+    }
+    .theme-toggle {
+        width: 35px;                              /* Botón de tema más pequeño */
+        height: 35px;
+        font-size: 1rem;
+    }
+    nav a {
+        padding: 1rem 1.5rem;                     /* Menos espacio interno en el menú */
+    }
+    .seccion {
+        padding: 1rem;                            /* Menos relleno interno para ganar espacio de texto */
+    }
+    .footer {
+        padding: 1rem;
+    }
+    .footer-section h3 {
+        font-size: 1.1rem;                        /* Títulos del footer más compactos */
+    }
+    .footer-section a,
+    .footer-section p {
+        font-size: 0.85rem;                       /* Texto de enlaces más pequeño */
+    }
+    .phrase-card {
+        padding: 1.5rem;                          /* Tarjeta de frase más compacta */
+    }
+}

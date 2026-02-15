@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog</title>
+
+    <link rel="stylesheet" href="./assets/css/estilos.css">
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <a href="index.html" class="logo-container" aria-label="GasServicios - Página principal">
+                <img src="https://cdn.pixabay.com/photo/2014/12/26/10/50/flame-580342_1280.jpg" alt="Logo GasServicios - Llama" class="logo-img" loading="lazy">
+                <h1>GasServicios</h1>
+            </a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar modo de visualización">
+                <span aria-hidden="true">🌙</span>
+            </button>
+        </header>
+
+        <!--
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="#inicio" onclick="mostrarSeccion('inicio')">Inicio</a></li>
+                <li><a href="#servicios" onclick="mostrarSeccion('servicios')">Servicios</a></li>
+                <li><a href="#portfolio" onclick="mostrarSeccion('portfolio')">Portfolio</a></li>
+                <li><a href="#blog" onclick="mostrarSeccion('blog')">Blog</a></li>
+                <li><a href="#contacto" onclick="mostrarSeccion('contacto')">Contacto</a></li>
+            </ul>
+        </nav>
+
+
+         -->
+         <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html" target="miSitio">Inicio</a></li>
+                <li><a href="nosotros.html" target="miSitio">Nosotros</a></li>
+                <li><a href="servicios.html" target="miSitio">Servicios</a></li>
+                <li><a href="portfolio.html" target="miSitio">Portfolio</a></li>
+                <li><a href="#blog.html" target="miSitio">Blog</a></li>
+                <li><a href="contacto.html" target="miSitio">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main con botones y secciones -->
+        <main>
+            <div class="botones" role="tablist" aria-label="Seleccionar sección">
+                <button onclick="mostrarSeccion('nosotros')" id="btnNosotros" class="active" role="tab" aria-selected="true" aria-controls="nosotros">Nosotros</button>
+                <button onclick="mostrarSeccion('historia')" id="btnHistoria" role="tab" aria-selected="false" aria-controls="historia">Historia</button>
+                <button onclick="mostrarSeccion('productos')" id="btnProductos" role="tab" aria-selected="false" aria-controls="productos">Productos</button>
+            </div>
+
+            <!-- Sección Nosotros -->
+            <section class="seccion visible" id="nosotros" role="tabpanel" aria-labelledby="btnNosotros">
+                <h2>Nosotros</h2>
+                <h3>Experiencia y certificaciones</h3>
+                <p>Con más de 30 años de experiencia en el mercado, contamos con todas las certificaciones exigidas por la normativa nacional e internacional en el sector del gas.</p>
+
+                <h3>Enfoque en seguridad</h3>
+                <p>Implementamos protocolos de seguridad exhaustivos en todas nuestras operaciones, con sistemas de control de calidad en cada etapa del proceso.</p>
+
+                <h3>Capacidad de respuesta</h3>
+                <p>Nuestra flota de vehículos equipados con tecnología de punta nos permite atender emergencias las 24 horas en toda nuestra área de cobertura.</p>
+
+                <h3>Formación del personal</h3>
+                <p>Invertimos anualmente en la capacitación continua de nuestro equipo, con simulacros periódicos y cursos de actualización técnica.</p>
+
+                <h3>Compromiso ambiental</h3>
+                <p>Promovemos el uso eficiente de la energía y desarrollamos tecnologías limpias para minimizar el impacto ambiental de nuestras operaciones.</p>
+            </section>
+
+            <!-- Sección Historia -->
+            <section class="seccion" id="historia" role="tabpanel" aria-labelledby="btnHistoria">
+                <h2>Historia</h2>
+                <h3>Orígenes humildes</h3>
+                <p>Fundada en 1990 como un pequeño taller familiar, iniciamos nuestro camino con un fuerte compromiso por el trabajo bien hecho y la satisfacción del cliente.</p>
+
+                <h3>Primeros hitos</h3>
+                <p>En 1995 nos convertimos en proveedores autorizados de gas natural, marcando el inicio de nuestra expansión en el mercado regional.</p>
+
+                <h3>Reconocimientos</h3>
+                <p>Hemos sido galardonados con el Premio a la Excelencia en Servicios Energéticos en múltiples ocasiones, reconocimiento a nuestra calidad y profesionalismo.</p>
+
+                <h3>Certificaciones</h3>
+                <p>En 2015 obtuvimos la certificación ISO 9001, consolidando nuestro sistema de gestión de calidad y mejora continua.</p>
+
+                <h3>Expansión internacional</h3>
+                <p>Actualmente operamos en 5 países, manteniendo siempre nuestros valores fundamentales de seguridad, innovación y servicio al cliente.</p>
+            </section>
+
+            <!-- Sección Productos -->
+            <section class="seccion" id="productos" role="tabpanel" aria-labelledby="btnProductos">
+                <h2>Productos</h2>
+                <h3>Sistemas domésticos</h3>
+                <p>Kits completos para viviendas con contadores inteligentes y sistemas de detección de fugas con tecnología IoT para máxima seguridad.</p>
+
+                <h3>Soluciones industriales</h3>
+                <p>Plantas de regulación a medida y sistemas de distribución para industrias con altos consumos energéticos.</p>
+
+                <h3>Línea de propano</h3>
+                <p>Depósitos fijos y móviles de diversas capacidades con sistemas de vaporización para suministros particulares y colectivos.</p>
+
+                <h3>Energías renovables</h3>
+                <p>Sistemas híbridos gas-solar y soluciones pioneras en biogás para aprovechamiento de residuos orgánicos.</p>
+
+                <h3>Servicios adicionales</h3>
+                <p>Mantenimiento preventivo, formación para usuarios y plataforma digital de gestión energética para optimizar consumos.</p>
+            </section>
+
+            <!-- Contenedor de tarjetas -->
+            <div class="tarjetas-contenedor">
+                <!-- Tarjeta 1 -->
+                <article class="tarjeta">
+                    <img src="https://cdn.pixabay.com/photo/2017/09/09/18/25/living-room-2732939_1280.jpg" alt="Servicio de Mantenimiento Preventivo" loading="lazy">
+                    <h3>Mantenimiento</h3>
+                    <p>Servicios de mantenimiento preventivo y correctivo para instalaciones de gas.</p>
+                    <button aria-label="Más información sobre Mantenimiento">Más info</button>
+                </article>
+
+                <!-- Tarjeta 2 -->
+                <article class="tarjeta">
+                    <img src="https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_1280.jpg" alt="Servicio de Revisión de Instalaciones" loading="lazy">
+                    <h3>Revisión</h3>
+                    <p>Inspecciones periódicas para garantizar la seguridad de tus instalaciones.</p>
+                    <button aria-label="Más información sobre Revisión">Más info</button>
+                </article>
+
+                <!-- Tarjeta 3 -->
+                <article class="tarjeta">
+                    <img src="https://cdn.pixabay.com/photo/2014/07/31/23/00/workshop-407163_1280.jpg" alt="Servicio de Instalación Profesional" loading="lazy">
+                    <h3>Instalación</h3>
+                    <p>Instalación profesional de sistemas de gas para hogares y empresas.</p>
+                    <button aria-label="Más información sobre Instalación">Más info</button>
+                </article>
+
+                <!-- Tarjeta 4 -->
+                <article class="tarjeta">
+                    <img src="https://cdn.pixabay.com/photo/2017/03/28/12/11/chimney-2181935_1280.jpg" alt="Servicio de Reparación de Fugas" loading="lazy">
+                    <h3>Reparación</h3>
+                    <p>Reparación rápida y eficiente de fugas y averías en instalaciones de gas.</p>
+                    <button aria-label="Más información sobre Reparación">Más info</button>
+                </article>
+
+                <!-- Tarjeta 5 -->
+                <article class="tarjeta">
+                    <img src="https://cdn.pixabay.com/photo/2016/02/19/11/23/consulting-1209370_1280.jpg" alt="Servicio de Asesoría Personalizada" loading="lazy">
+                    <h3>Asesoría</h3>
+                    <p>Asesoramiento personalizado para optimizar tus instalaciones de gas.</p>
+                    <button aria-label="Más información sobre Asesoría">Más info</button>
+                </article>
+
+                <!-- Tarjeta 6 -->
+                <article class="tarjeta">
+                    <img src="https://cdn.pixabay.com/photo/2016/11/23/14/45/coding-1853305_1280.jpg" alt="Servicio de Emergencias 24/7" loading="lazy">
+                    <h3>Emergencias</h3>
+                    <p>Atención inmediata las 24 horas para emergencias relacionadas con el gas.</p>
+                    <button aria-label="Más información sobre Emergencias">Más info</button>
+                </article>
+
+                <!-- Tarjeta 7 -->
+                <article class="tarjeta">
+                    <img src="https://cdn.pixabay.com/photo/2016/12/13/22/39/paper-1905153_1280.jpg" alt="Servicio de Certificaciones Oficiales" loading="lazy">
+                    <h3>Certificaciones</h3>
+                    <p>Certificación oficial de instalaciones de gas según normativas vigentes.</p>
+                    <button aria-label="Más información sobre Certificaciones">Más info</button>
+                </article>
+
+                <!-- Tarjeta 8 -->
+                <article class="tarjeta">
+                    <img src="https://cdn.pixabay.com/photo/2017/05/13/17/45/architecture-2309810_1280.jpg" alt="Servicio de Proyectos a Medida" loading="lazy">
+                    <h3>Proyectos</h3>
+                    <p>Diseño y ejecución de proyectos de gas para grandes instalaciones.</p>
+                    <button aria-label="Más información sobre Proyectos">Más info</button>
+                </article>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="#" aria-label="Política de Privacidad">Política de Privacidad</a>
+                <a href="#" aria-label="Accesibilidad">Accesibilidad</a>
+                <a href="#" aria-label="Términos y condiciones">Términos y condiciones</a>
+                <a href="#" aria-label="Política de Cookies">Cookies</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <a href="#inicio" onclick="mostrarSeccion('nosotros')" aria-label="Ir a Inicio">Inicio</a>
+                <a href="#nosotros" onclick="mostrarSeccion('nosotros')" aria-label="Ir a Nosotros">Sobre Nosotros</a>
+                <a href="#servicios" onclick="mostrarSeccion('productos')" aria-label="Ir a Servicios">Servicios</a>
+                <a href="#contacto" aria-label="Ir a Contacto">Contacto</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><a href="mailto:info@gasservicios.com" aria-label="Enviar email a info@gasservicios.com">info@gasservicios.com</a></p>
+                <p><a href="tel:+34900000000" aria-label="Llamar al 900 000 000">+34 900 000 000</a></p>
+                <p>Calle Principal 123, Madrid</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Servicios</h3>
+                <p><a href="mailto:servicios@gasservicios.com" aria-label="Enviar email a servicios@gasservicios.com">servicios@gasservicios.com</a></p>
+                <p><a href="tel:+34900111111" aria-label="Llamar al 900 111 111">+34 900 111 111</a></p>
+                <p>Atención 24/7</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Portfolio</h3>
+                <a href="#" aria-label="Ver proyectos residenciales">Proyectos residenciales</a>
+                <a href="#" aria-label="Ver proyectos industriales">Proyectos industriales</a>
+                <a href="#" aria-label="Ver certificaciones">Certificaciones</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Redes Sociales</h3>
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘</a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">🐦</a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸</a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">🔗</a>
+                </div>
+            </div>
+
+            <div class="footer-newsletter">
+                <h3>Newsletter</h3>
+                <form id="newsletterForm" novalidate>
+                    <label for="email">Suscríbete a nuestro boletín:</label>
+                    <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+                    <button type="submit">Suscribirse</button>
+                </form>
+            </div>
+
+            <div class="footer-copyright">
+                <p>&copy; <span id="currentYear"></span> GasServicios. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ======================================
+                     JAVASCRIPT
+         ====================================== -->
+    <script src="./assets/js/script.js"></script>
+
+
+</body>
+</html>

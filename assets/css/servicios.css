@@ -1,0 +1,160 @@
+/* =========================================================
+   AJUSTE DE ANCHOS UNIFICADOS (HEADER, MAIN, FOOTER)
+   ========================================================= */
+   :root {
+    /* Define un límite de ancho global para que la web no se pegue a los bordes de la pantalla */
+    --max-width-contenido: 90%; 
+}
+
+/* El contenedor principal que envuelve toda la estructura de la página */
+.contenedor {
+    /* Aplica el ancho máximo definido en la variable de arriba */
+    max-width: var(--max-width-contenido);
+    /* Centra el bloque horizontalmente (arriba/abajo 0, izquierda/derecha automático) */
+    margin: 0 auto;
+    /* Obliga al contenedor a intentar ocupar todo el ancho disponible hasta el max-width */
+    width: 100%;
+    /* Activa Flexbox para ordenar los elementos hijos (header, main, footer) en vertical */
+    display: flex;
+    flex-direction: column;
+    /* Aplica un espacio uniforme entre el header, el main y el footer */
+    gap: var(--gap-elementos);
+}
+
+/* Forzamos que los bloques estructurales ocupen todo el espacio interno del .contenedor */
+main, section, .footer {
+    width: 100%;
+}
+
+/* =========================================================
+           ESTILOS INTEGRADOS PARA LOS PRONOMBRES
+   ========================================================= */
+/* Rejilla para mostrar las tarjetas de pronombres */
+.pronoun-grid {
+    /* Activa el sistema de rejilla (Grid) */
+    display: grid;
+    /* Crea columnas automáticas: mínimo 300px cada una, si no caben, se apilan */
+    /* repeat(auto-fill): rellena la fila con tantas columnas como quepan */
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+    /* Espacio entre las tarjetas de la rejilla */
+    gap: var(--gap-elementos);
+    /* Margen de 2rem arriba y abajo para separar el bloque de otros textos */
+    margin: 2rem 0;
+    /* Ocupa el 100% de su contenedor padre (main) */
+    width: 100%;
+}
+
+/* Estilo individual de cada tarjeta de pronombre */
+.pronoun-card {
+    /* Color de fondo definido en las variables globales (generalmente blanco) */
+    background-color: var(--blanco-claro);
+    /* Espacio interno para que el texto no toque los bordes de la tarjeta */
+    padding: 1.5rem;
+    /* Redondeo de esquinas definido en el sistema de diseño */
+    border-radius: var(--border-radius);
+    /* Sombra sutil para dar efecto de elevación */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Borde decorativo grueso a la izquierda para identificar la tarjeta */
+    border-left: 5px solid var(--azul-medio);
+    /* Activa Flexbox vertical para separar el texto del botón de audio */
+    display: flex;
+    flex-direction: column;
+    /* Empuja el contenido para que el botón siempre quede al final de la tarjeta */
+    justify-content: space-between;
+    /* Suaviza las animaciones de movimiento y sombra */
+    transition: var(--transition);
+}
+
+/* Ajustes específicos para cuando el usuario activa el Modo Oscuro */
+[data-theme="dark"] .pronoun-card {
+    /* Cambia el fondo a un gris oscuro/marino */
+    background-color: var(--gris-claro);
+    /* El borde lateral cambia al color de acento (naranja) para mejor contraste */
+    border-left-color: var(--color-acento);
+}
+
+/* Efecto visual cuando el usuario pasa el cursor sobre la tarjeta */
+.pronoun-card:hover {
+    /* Eleva la tarjeta 3 píxeles hacia arriba */
+    transform: translateY(-3px);
+    /* Hace la sombra más grande y oscura para simular mayor altura */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo para el texto en inglés dentro de la tarjeta */
+.pronoun-card .en-text {
+    /* Tamaño un poco mayor al normal */
+    font-size: 1.1rem;
+    /* Letra negrita para destacar el idioma extranjero */
+    font-weight: bold;
+    /* Color de marca principal (azul oscuro/claro según tema) */
+    color: var(--color-primario);
+    /* Separación con el texto inferior */
+    margin-bottom: 0.5rem;
+}
+
+/* Estilo para la traducción al español */
+.pronoun-card .es-text {
+    /* Color gris oscuro para que sea visualmente secundario al inglés */
+    color: var(--gris-muy-oscuro);
+    /* Tamaño reducido */
+    font-size: 0.9rem;
+    /* Letra cursiva para indicar que es una traducción */
+    font-style: italic;
+    /* Hace el texto un poco más transparente/suave */
+    opacity: 0.8;
+}
+
+/* Clase para resaltar palabras clave dentro de una frase de ejemplo */
+.highlight {
+    /* Color naranja llamativo */
+    color: var(--naranja-oscuro);
+    /* Negrita para llamar la atención */
+    font-weight: bold;
+    /* Subrayado para reforzar el énfasis */
+    text-decoration: underline;
+}
+
+/* Estilo para el botón de reproducción de voz */
+.btn-audio {
+    /* Margen superior para separarlo del texto de la tarjeta */
+    margin-top: 1rem;
+    /* Fondo naranja (color de acento) */
+    background-color: var(--color-acento);
+    /* Color de texto oscuro para que sea legible sobre el naranja */
+    color: var(--color-primario);
+    /* Quita el borde por defecto del navegador */
+    border: none;
+    /* Espaciado interno del botón */
+    padding: 0.75rem;
+    /* Redondea las esquinas del botón */
+    border-radius: var(--border-radius);
+    /* Cambia el cursor a forma de mano */
+    cursor: pointer;
+    /* Letra negrita */
+    font-weight: bold;
+    /* Animación suave para el cambio de color al pasar el mouse */
+    transition: var(--transition);
+}
+
+/* Efecto hover del botón de audio */
+.btn-audio:hover {
+    /* Cambia el fondo a azul medio */
+    background-color: var(--color-secundario);
+    /* El texto del botón cambia a blanco/claro */
+    color: var(--color-texto-claro);
+}
+
+/* Estilo para los subtítulos de secciones específicas */
+.sub-title {
+    /* Mucho espacio arriba para separar de la sección anterior */
+    margin-top: 3rem; 
+    /* Línea naranja gruesa debajo del título */
+    border-bottom: 3px solid var(--color-acento); 
+    /* El ancho se adapta al texto (no ocupa toda la línea) */
+    display: inline-block;
+    /* Color azul medio de marca */
+    color: var(--color-secundario);
+    /* Espacio entre el texto y la línea inferior */
+    padding-bottom: 0.5rem;
+}

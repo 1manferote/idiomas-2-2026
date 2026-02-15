@@ -1,0 +1,640 @@
+:root {
+    /* --- PALETA DE COLORES BASE --- */
+    /* Azules: Colores principales de la identidad visual */
+    --azul-claro: #e6f3ff;        /* Fondo para elementos destacados suaves */
+    --azul-medio: #0066cc;        /* Color para botones y enlaces */
+    --azul-oscuro: #003366;       /* Color base para headers y footers */
+    --azul-muy-oscuro: #001f3f;   /* Usado en gradientes de profundidad */
+    
+    /* Escala de Blancos y Grises: Estructura de la interfaz */
+    --blanco-claro: #ffffff;      /* Blanco puro para texto sobre fondos oscuros */
+    --blanco-medio: #f5f8fa;      /* Fondo de página en modo claro */
+    --blanco-oscuro: #ddd;         /* Bordes y líneas divisorias */
+    
+    --gris-claro: #f5f8fa;        /* Fondo de tarjetas en modo claro */
+    --gris-medio: #ccc;           /* Bordes deshabilitados o secundarios */
+    --gris-oscuro: #aaa;          /* Texto secundario o placeholders */
+    --gris-muy-oscuro: #333333;   /* Texto principal para alta legibilidad */
+    
+    /* Colores de Acento y Estado: Llamadas a la acción y alertas */
+    --naranja-claro: #ffb74d;     /* Hover para botones de acento */
+    --naranja-oscuro: #ff9900;    /* Color principal de botones y detalles clave */
+    --rosa-claro: #ff4da6;        /* Decoración en gradientes complejos */
+    --rosa-medio: #FF69B4;        /* Variación estética de rosa */
+    --rojo-claro: #ff0000;        /* Color para alertas críticas */
+    --rojo-medio: #FF0000;        /* Color para errores de validación */
+    --verde-claro: #4caf50;       /* Confirmaciones de éxito */
+    --amarillo-claro: #ffc;       /* Fondo para notas o inputs destacados */
+    
+    /* --- SISTEMA DE GRADIENTES DINÁMICOS --- */
+    /* Definición de fondos complejos usando las variables anteriores */
+    --gradiente-blanco-azul: linear-gradient(135deg, var(--blanco-oscuro), var(--azul-muy-oscuro));
+    --gradiente-azul-naranja: linear-gradient(135deg, var(--azul-muy-oscuro), var(--naranja-claro));
+    --gradiente-azul-rosa: linear-gradient(135deg, var(--azul-muy-oscuro), var(--rosa-claro));
+    --gradiente-azul-rojo: linear-gradient(135deg, var(--azul-muy-oscuro), var(--rojo-claro));
+    --gradiente-azul-rosa-horizontal: linear-gradient(to right, var(--azul-medio), var(--rosa-medio));
+    --gradiente-azul-rojo-horizontal: linear-gradient(to right, var(--azul-medio), var(--rojo-medio));
+    
+    /* --- VARIABLES DE DISEÑO ESTRUCTURAL --- */
+    --padding-contenedor: clamp(1rem, 3vw, 2rem); /* Padding que se adapta al ancho de pantalla */
+    --gap-elementos: clamp(0.5rem, 2vw, 1.5rem);   /* Espaciado dinámico entre elementos */
+    --border-radius: 0.5rem;                       /* Redondeo estándar (8px) */
+    --transition: all 0.3s ease;                   /* Tiempo de animación para transiciones suaves */
+    --max-width-contenido: 90%;                    /* Ancho máximo del sitio para no estirarse demasiado */
+    
+    /* --- MAPEO FUNCIONAL (TEMA CLARO DEFAULT) --- */
+    /* Asigna colores a funciones específicas para que el cambio de tema sea automático */
+    --color-fondo: var(--gradiente-blanco-azul);  /* Fondo principal */
+    --color-texto: var(--gris-muy-oscuro);        /* Texto de lectura */
+    --color-texto-claro: var(--blanco-claro);     /* Texto sobre fondos oscuros */
+    --color-header: var(--azul-oscuro);           /* Color del encabezado */
+    --color-footer: var(--azul-oscuro);           /* Color del pie de página */
+    --color-sidebar-left: var(--verde-claro);     /* Decoración izquierda */
+    --color-sidebar-right: var(--naranja-oscuro);  /* Decoración derecha */
+    --color-widget: var(--azul-medio);            /* Fondo de bloques de información */
+    --color-widget-3-4: var(--gris-medio);        /* Variación para widgets secundarios */
+    --color-input: var(--amarillo-claro);         /* Fondo de campos de texto */
+    --color-terciario: var(--azul-claro);         /* Color de soporte o fondos de sección */
+    --color-acento: var(--naranja-oscuro);        /* Color que resalta elementos importantes */
+    --color-primario: var(--azul-oscuro);         /* Identidad principal de marca */
+    --color-secundario: var(--azul-medio);        /* Identidad secundaria de marca */
+}
+
+/* --- TEMA OSCURO (SE ACTIVA CON data-theme="dark") --- */
+[data-theme="dark"] {
+    --color-fondo: linear-gradient(135deg, #1a1a2a, #0a0a1a); /* Fondo noche profundo */
+    --color-texto: var(--blanco-claro);           /* Texto claro para leer en fondo oscuro */
+    --color-texto-claro: var(--azul-claro);       /* Azul suave para destacar texto sobre negro */
+    --color-header: #0a0a2a;                      /* Azul casi negro para el header */
+    --color-footer: #0a0a2a;                      /* Igual para el pie de página */
+    --color-sidebar-left: #2d7a30;                /* Verde oscuro */
+    --color-sidebar-right: #d47a1e;               /* Naranja quemado */
+    --color-widget: #3a7ebd;                      /* Widgets en azul eléctrico */
+    --color-widget-3-4: #444;                     /* Gris oscuro para bloques secundarios */
+    --color-input: #333;                          /* Fondo oscuro para campos de texto */
+    --color-terciario: #1a2a4a;                   /* Azul marino para secciones internas */
+    --color-acento: #ffaa33;                      /* Naranja brillante para resaltar */
+    --color-primario: #002244;                    /* Azul medianoche */
+    --color-secundario: #004488;                  /* Azul profundo */
+    --gris-claro: #2a2a4a;                        /* Reasignación de grises para el tema oscuro */
+    --gris-medio: #444;
+    --gris-oscuro: #666;
+    --blanco-oscuro: #444;
+    --blanco-claro: #f0f0f0;
+}
+
+/* --- RESETEO DE ESTILOS --- */
+* {
+    margin: 0;                                    /* Quita márgenes externos de todos los elementos */
+    padding: 0;                                   /* Quita rellenos internos */
+    box-sizing: border-box;                       /* Hace que padding/border no alteren el ancho total */
+}
+
+body {
+    font-family: 'Arial', sans-serif;             /* Fuente estándar y clara */
+    background: var(--color-fondo);               /* Aplica el gradiente dinámico */
+    color: var(--color-texto);                    /* Aplica el color de texto del tema */
+    min-height: 100vh;                            /* Asegura que el fondo cubra todo el alto de pantalla */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave al cambiar de tema */
+    line-height: 1.6;                             /* Espaciado cómodo entre líneas de texto */
+}
+
+/* Contenedor central principal */
+.contenedor {
+    display: grid;                                /* Uso de rejilla para organizar contenido */
+    grid-template-columns: minmax(0, 1fr);        /* Columna única que ocupa todo el espacio */
+    gap: var(--gap-elementos);                    /* Espaciado entre bloques */
+    padding: var(--padding-contenedor);           /* Relleno lateral dinámico */
+    max-width: var(--max-width-contenido);        /* Limita el ancho al 90% */
+    margin: 0 auto;                               /* Centra el sitio horizontalmente */
+    width: 100%;
+}
+
+/* --- CABECERA (HEADER) --- */
+header {
+    background-color: var(--color-header);        /* Color según el modo actual */
+    padding: 1rem var(--padding-contenedor);      /* Padding arriba/abajo y lateral */
+    display: flex;                                /* Alinea logo y botón en línea */
+    align-items: center;                          /* Centra verticalmente */
+    justify-content: space-between;               /* Separa logo a la izquierda y toggle a la derecha */
+    border-radius: var(--border-radius);          /* Esquinas redondeadas */
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);     /* Sombra para dar elevación */
+}
+
+.logo-container {
+    display: flex;                                /* Alinea imagen y h1 */
+    align-items: center;
+    text-decoration: none;                        /* Quita el subrayado del link */
+    color: var(--color-texto-claro);              /* Texto blanco/claro */
+    gap: 1rem;                                    /* Espacio entre imagen y texto */
+    transition: var(--transition);                /* Efecto hover suave */
+}
+
+.logo-container:hover {
+    transform: scale(1.02);                       /* Crece un 2% al pasar el mouse */
+}
+
+.logo-img {
+    width: 50px;                                  /* Tamaño fijo del logo */
+    height: 50px;
+    border-radius: 50%;                           /* Hace la imagen circular */
+    object-fit: cover;                            /* Evita que se deforme la imagen */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);     /* Sombra para el logo */
+    border: 2px solid var(--color-acento);        /* Marco de color naranja */
+}
+
+/* --- BOTÓN TOGGLE TEMA (SOL/LUNA) --- */
+.theme-toggle {
+    background: var(--color-acento);              /* Fondo naranja */
+    border: none;
+    border-radius: 50%;                           /* Forma redonda */
+    width: 40px;
+    height: 40px;
+    cursor: pointer;                              /* Cursor de mano */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primario);                 /* Icono en azul oscuro */
+    font-size: 1.2rem;                            /* Tamaño del emoji */
+    transition: var(--transition);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle:hover {
+    transform: rotate(360deg);                    /* Gira al pasar el mouse */
+    background: var(--color-secundario);          /* Cambia a azul al hover */
+    color: var(--color-texto-claro);              /* Icono pasa a blanco */
+}
+
+/* --- NAVEGACIÓN (STICKY BAR) --- */
+nav {
+    background: linear-gradient(to right, var(--color-secundario), var(--color-primario)); /* Gradiente azul horizontal */
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;                             /* Se queda fijo en el tope al hacer scroll */
+    top: 0;                                       /* Posición de pegado */
+    z-index: 1000;                                /* Asegura que pase por encima de otros elementos */
+    width: 100%;
+}
+
+nav ul {
+    display: flex;                                /* Links en línea */
+    flex-wrap: wrap;                              /* Baja links en pantallas pequeñas */
+    list-style: none;                             /* Quita puntos de lista */
+    justify-content: center;                      /* Centra los enlaces */
+    padding: 0;
+}
+
+nav a {
+    color: var(--color-texto-claro);              /* Enlaces blancos */
+    text-decoration: none;
+    font-weight: 500;                             /* Grosor de letra medio */
+    padding: 1.2rem 2rem;                         /* Área de clic grande */
+    display: block;
+    transition: var(--transition);
+    position: relative;                           /* Para la línea inferior animada */
+    cursor: pointer;
+}
+
+/* Efecto de subrayado moderno al hover */
+nav a::after {
+    content: '';                                  /* Elemento vacío para dibujar la línea */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;                                     /* Empieza con ancho 0 */
+    height: 2px;
+    background-color: var(--color-acento);        /* Línea naranja */
+    transition: var(--transition);
+    transform: translateX(-50%);                  /* Centra la línea */
+}
+
+nav a:hover::after {
+    width: 80%;                                   /* Crece al 80% del ancho del link */
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);   /* Fondo blanco transparente */
+}
+
+/* --- ÁREA PRINCIPAL --- */
+main {
+    display: grid;                                /* Grid para organizar bloques */
+    grid-template-columns: 1fr;                   /* Columna única */
+    gap: var(--gap-elementos);
+    width: 100%;
+}
+
+/* --- BLOQUE DE PESTAÑAS (TABS) --- */
+.botones {
+    display: flex;                                /* Botones en fila */
+    justify-content: space-around;                /* Reparte espacio entre ellos */
+    gap: 1rem;                                    /* Hueco entre botones */
+    margin-bottom: 2rem;                          /* Separación inferior */
+    width: 100%;
+    border-radius: var(--border-radius);
+    background: var(--color-terciario);           /* Fondo azul suave o marino */
+    min-height: 10rem;                            /* Altura mínima para que resalten */
+    padding: 1rem;
+    align-items: center;                          /* Centra botones verticalmente */
+    flex-wrap: wrap;                              /* Permite que bajen en móviles */
+}
+
+.botones button {
+    padding: 0.75rem 1.5rem;                      /* Relleno interno */
+    background-color: var(--color-acento);        /* Fondo naranja */
+    color: var(--color-primario);                 /* Texto azul oscuro */
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    flex: 1;                                      /* Se expanden equitativamente */
+    max-width: 200px;                             /* No crecen más de 200px */
+    font-weight: bold;                            /* Letra negrita */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+}
+
+.botones button:hover {
+    background-color: var(--color-secundario);    /* Azul medio al hover */
+    color: var(--color-texto-claro);              /* Texto blanco */
+    transform: translateY(-2px);                  /* Sube un poco */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);     /* Sombra más fuerte */
+}
+
+.botones button.active {
+    background-color: var(--color-secundario);    /* Se queda azul cuando está activa */
+    color: var(--color-texto-claro);              /* Texto blanco fijo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* --- SECCIONES DE CONTENIDO --- */
+.seccion {
+    display: none;                                /* Ocultas por defecto */
+    padding: 1.5rem;
+    background-color: var(--color-terciario);     /* Fondo del tema */
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    color: var(--color-texto);                    /* Color de lectura */
+}
+
+/* Clase inyectada por JS para mostrar la sección elegida */
+.seccion.visible {
+    display: block;                               /* Se hace visible */
+    animation: fadeIn 0.5s ease;                  /* Efecto de aparecer suave */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); } /* Empieza invisible y abajo */
+    to { opacity: 1; transform: translateY(0); }      /* Termina visible y en su lugar */
+}
+
+.seccion h2 {
+    text-align: center;                           /* Título centrado */
+    color: var(--color-primario);                 /* Azul oscuro/claro según tema */
+    margin-bottom: 1.5rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);          /* Texto escalable */
+}
+
+.seccion h3 {
+    color: var(--color-secundario);               /* Subtítulo azul */
+    margin: 1rem 0 0.5rem;
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+}
+
+.seccion p {
+    margin-bottom: 1rem;                          /* Separación entre párrafos */
+    line-height: 1.6;                             /* Lectura cómoda */
+}
+
+/* --- GRID DE TARJETAS --- */
+.tarjetas-contenedor {
+    display: grid;                                /* Activa rejilla */
+    grid-template-columns: repeat(4, 1fr);        /* 4 columnas iguales */
+    gap: var(--gap-elementos);
+    padding: 0;
+    width: 100%;
+}
+
+.tarjeta {
+    background-color: var(--blanco-claro);        /* Fondo blanco en claro */
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;                             /* Evita que contenido sobresalga */
+    display: flex;
+    flex-direction: column;                       /* Ordena verticalmente: img, h3, p, btn */
+    align-items: center;                          /* Centra horizontalmente */
+    text-align: center;
+    padding: 1.5rem;
+    transition: var(--transition);
+    width: 100%;
+    border: 2px solid transparent;                /* Borde invisible para evitar saltos al hover */
+}
+
+/* Ajustes de tarjeta para modo oscuro */
+[data-theme="dark"] .tarjeta {
+    background-color: var(--gris-claro);          /* Fondo oscuro */
+    border-color: var(--azul-medio);              /* Borde azul visible */
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);                  /* Sube ligeramente */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);     /* Sombra más grande */
+    border-color: var(--color-acento);            /* El borde se vuelve naranja */
+}
+
+/* Imagen circular en tarjeta */
+.tarjeta img {
+    width: 100px;                                 /* Tamaño fijo */
+    height: 100px;
+    border-radius: 50%;                           /* Círculo perfecto */
+    object-fit: cover;                            /* Ajusta imagen al círculo */
+    margin-bottom: 1rem;
+    border: 2px solid var(--color-acento);        /* Marco naranja */
+    transition: var(--transition);
+}
+
+.tarjeta:hover img {
+    transform: scale(1.1);                        /* La imagen crece un poco al hover */
+}
+
+.tarjeta h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-primario);                 /* Título azul */
+}
+
+[data-theme="dark"] .tarjeta h3 {
+    color: var(--blanco-claro);                   /* Blanco en modo oscuro */
+}
+
+.tarjeta p {
+    font-size: 0.9rem;
+    color: var(--color-texto);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    flex-grow: 1;                                 /* Empuja el botón al fondo si el texto es corto */
+}
+
+/* Botón transparente en tarjeta */
+.tarjeta button {
+    background-color: transparent;                /* Sin fondo */
+    border: 2px solid var(--color-acento);        /* Borde naranja */
+    color: var(--color-acento);                   /* Texto naranja */
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: bold;
+    margin-top: auto;                             /* Alineación al final */
+}
+
+.tarjeta button:hover {
+    background-color: var(--color-acento);        /* Fondo naranja al hover */
+    color: var(--color-texto-claro);              /* Texto blanco */
+    transform: scale(1.05);                       /* Crece un poco */
+}
+
+/* --- PIE DE PÁGINA (FOOTER) --- */
+.footer {
+    background: var(--color-footer);              /* Fondo azul oscuro */
+    color: var(--color-texto-claro);              /* Texto blanco */
+    padding: 2rem;
+    display: grid;                                /* Grid para las 6 columnas */
+    grid-template-columns: repeat(6, 1fr);        /* 6 secciones en línea */
+    gap: 2rem;
+    align-items: start;
+    text-align: left;
+    width: 100%;
+    border-radius: var(--border-radius);
+    margin-top: 2rem;
+}
+
+.footer-section {
+    display: flex;                                /* Links en columna */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: var(--color-texto-claro);
+    font-weight: bold;
+}
+
+.footer-section a {
+    color: var(--blanco-claro);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 0.9rem;
+}
+
+.footer-section a:hover {
+    color: var(--color-acento);                   /* Enlace brilla naranja al hover */
+}
+
+.footer-section p {
+    color: var(--blanco-claro);
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+}
+
+.footer-section .social-icons {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1.5rem;                            /* Iconos grandes */
+}
+
+/* Newsletter centrada en el footer */
+.footer-newsletter {
+    grid-column: 1 / -1;                         /* Ocupa las 6 columnas de ancho */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);    /* Línea decorativa arriba */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea decorativa abajo */
+}
+
+.footer-newsletter h3 {
+    color: var(--color-texto-claro);
+    margin-bottom: 1rem;
+}
+
+.footer-newsletter form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 400px;                             /* No deja que sea muy ancho el form */
+    width: 100%;
+}
+
+.footer-newsletter label {
+    color: var(--blanco-claro);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-newsletter input {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    background: var(--blanco-claro);
+    color: var(--color-texto);                    /* Texto oscuro al escribir */
+}
+
+/* Input en modo oscuro */
+[data-theme="dark"] .footer-newsletter input {
+    background: var(--gris-medio);                /* Fondo gris oscuro */
+    color: var(--blanco-claro);                   /* Texto claro al escribir */
+    border: 1px solid var(--azul-medio);
+}
+
+.footer-newsletter button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-acento);        /* Botón naranja */
+    color: var(--color-primario);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap;                          /* Evita que el texto baje de línea */
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.footer-newsletter button:hover {
+    background-color: #ffcc33;                    /* Naranja claro */
+    transform: translateY(-2px);
+}
+
+.footer-copyright {
+    grid-column: 1 / -1;                         /* Todo el ancho al final */
+    text-align: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--blanco-claro);
+    font-size: 0.9rem;
+}
+
+/* --- DISEÑO RESPONSIVE --- */
+
+/* Tablet: Cambia a 2 columnas */
+@media (max-width: 1024px) {
+    .footer {
+        grid-template-columns: repeat(2, 1fr);   /* Footer 2 secciones por fila */
+    }
+
+    .footer-section {
+        grid-column: span 1;
+    }
+    
+    .tarjetas-contenedor {
+        grid-template-columns: repeat(2, 1fr);   /* Tarjetas 2 por fila */
+    }
+}
+
+/* Móvil: Cambia a 1 columna */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;                  /* Menú vertical en móvil */
+    }
+
+    nav a {
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria entre links */
+    }
+
+    nav a:last-child {
+        border-bottom: none;
+    }
+
+    .botones {
+        flex-direction: column;                  /* Botones de tabs uno bajo otro */
+        align-items: center;
+    }
+
+    .botones button {
+        max-width: 100%;                         /* Ocupan todo el ancho */
+        width: 100%;
+    }
+
+    .footer {
+        grid-template-columns: 1fr;              /* Footer vertical de 1 columna */
+        padding: 1.5rem;
+    }
+
+    .footer-section {
+        grid-column: 1;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 1.5rem;
+        align-items: center;                     /* Centra todo en el footer */
+        text-align: center;
+    }
+
+    .footer-section:last-child {
+        border-bottom: none;
+    }
+
+    .footer-newsletter form {
+        gap: 1rem;
+    }
+
+    .footer-newsletter input {
+        width: 80%;                              /* Acorta input para mejor visualización */
+    }
+
+    .footer-newsletter button {
+        width: 80%;
+    }
+
+    .footer-copyright {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .tarjetas-contenedor {
+        grid-template-columns: 1fr;              /* 1 tarjeta por fila en móvil */
+    }
+}
+
+/* Móvil muy pequeño */
+@media (max-width: 480px) {
+    .logo-container h1 {
+        font-size: 1.2rem;                       /* Texto de logo más pequeño */
+    }
+    
+    .theme-toggle {
+        width: 35px;                             /* Botón de tema más pequeño */
+        height: 35px;
+        font-size: 1rem;
+    }
+    
+    nav a {
+        padding: 1rem 1.5rem;                    /* Ajuste de clics en menú */
+    }
+    
+    .seccion {
+        padding: 1rem;                           /* Menos espacio interno para el texto */
+    }
+    
+    .footer {
+        padding: 1rem;
+    }
+    
+    .footer-section h3 {
+        font-size: 1.1rem;
+    }
+    
+    .footer-section a, .footer-section p {
+        font-size: 0.85rem;                      /* Texto más pequeño para que no se corte */
+    }
+}
