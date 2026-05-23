@@ -1,45 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio Ingles</title>
+    <title>GasServicios - Instalaciones de Gas</title>
+    
 
     <link rel="stylesheet" href="./assets/css/estilos.css">
+
+
 </head>
 <body>
     <div class="contenedor">
         <header>
-            <a href="index.html" class="logo-container" aria-label="GasServicios - Página principal">
+            <a href="#" class="logo-container" aria-label="GasServicios - Página principal">
                 <img src="https://cdn.pixabay.com/photo/2014/12/26/10/50/flame-580342_1280.jpg" alt="Logo GasServicios - Llama" class="logo-img" loading="lazy">
                 <h1>GasServicios</h1>
             </a>
-            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar modo de visualización">
-                <span aria-hidden="true">🌙</span>
-            </button>
+            <div class="header-buttons">
+                <button class="hamburger" id="hamburgerBtn" aria-label="Menú de navegación">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambiar modo de visualización">
+                    <span class="theme-icon" aria-hidden="true">🌙</span>
+                    <span class="theme-text">Modo Oscuro</span>
+                </button>
+            </div>
         </header>
 
-        <!--
+        <!-- Overlay para cerrar el menú -->
+        <!-- Overlay para cerrar el menú - DEBE ESTAR ANTES DEL NAV -->
+        <div class="menu-overlay" id="menuOverlay"></div>
+
         <nav aria-label="Navegación principal">
             <ul>
-                <li><a href="#inicio" onclick="mostrarSeccion('inicio')">Inicio</a></li>
-                <li><a href="#servicios" onclick="mostrarSeccion('servicios')">Servicios</a></li>
-                <li><a href="#portfolio" onclick="mostrarSeccion('portfolio')">Portfolio</a></li>
-                <li><a href="#blog" onclick="mostrarSeccion('blog')">Blog</a></li>
-                <li><a href="#contacto" onclick="mostrarSeccion('contacto')">Contacto</a></li>
-            </ul>
-        </nav>
-
-
-         -->
-         <nav aria-label="Navegación principal">
-            <ul>
-                <li><a href="index.html" target="miSitio">Inicio</a></li>
-                <li><a href="nosotros.html" target="miSitio">Nosotros</a></li>
-                <li><a href="servicios.html" target="miSitio">Servicios</a></li>
-                <li><a href="portfolio.html" target="miSitio">Portfolio</a></li>
-                <li><a href="blog.html" target="miSitio">Blog</a></li>
-                <li><a href="contacto.html" target="miSitio">Contacto</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
 
@@ -110,7 +112,6 @@
 
             <!-- Contenedor de tarjetas -->
             <div class="tarjetas-contenedor">
-                <!-- Tarjeta 1 -->
                 <article class="tarjeta">
                     <img src="https://cdn.pixabay.com/photo/2017/09/09/18/25/living-room-2732939_1280.jpg" alt="Servicio de Mantenimiento Preventivo" loading="lazy">
                     <h3>Mantenimiento</h3>
@@ -118,7 +119,6 @@
                     <button aria-label="Más información sobre Mantenimiento">Más info</button>
                 </article>
 
-                <!-- Tarjeta 2 -->
                 <article class="tarjeta">
                     <img src="https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_1280.jpg" alt="Servicio de Revisión de Instalaciones" loading="lazy">
                     <h3>Revisión</h3>
@@ -126,7 +126,6 @@
                     <button aria-label="Más información sobre Revisión">Más info</button>
                 </article>
 
-                <!-- Tarjeta 3 -->
                 <article class="tarjeta">
                     <img src="https://cdn.pixabay.com/photo/2014/07/31/23/00/workshop-407163_1280.jpg" alt="Servicio de Instalación Profesional" loading="lazy">
                     <h3>Instalación</h3>
@@ -134,7 +133,6 @@
                     <button aria-label="Más información sobre Instalación">Más info</button>
                 </article>
 
-                <!-- Tarjeta 4 -->
                 <article class="tarjeta">
                     <img src="https://cdn.pixabay.com/photo/2017/03/28/12/11/chimney-2181935_1280.jpg" alt="Servicio de Reparación de Fugas" loading="lazy">
                     <h3>Reparación</h3>
@@ -142,7 +140,6 @@
                     <button aria-label="Más información sobre Reparación">Más info</button>
                 </article>
 
-                <!-- Tarjeta 5 -->
                 <article class="tarjeta">
                     <img src="https://cdn.pixabay.com/photo/2016/02/19/11/23/consulting-1209370_1280.jpg" alt="Servicio de Asesoría Personalizada" loading="lazy">
                     <h3>Asesoría</h3>
@@ -150,7 +147,6 @@
                     <button aria-label="Más información sobre Asesoría">Más info</button>
                 </article>
 
-                <!-- Tarjeta 6 -->
                 <article class="tarjeta">
                     <img src="https://cdn.pixabay.com/photo/2016/11/23/14/45/coding-1853305_1280.jpg" alt="Servicio de Emergencias 24/7" loading="lazy">
                     <h3>Emergencias</h3>
@@ -158,7 +154,6 @@
                     <button aria-label="Más información sobre Emergencias">Más info</button>
                 </article>
 
-                <!-- Tarjeta 7 -->
                 <article class="tarjeta">
                     <img src="https://cdn.pixabay.com/photo/2016/12/13/22/39/paper-1905153_1280.jpg" alt="Servicio de Certificaciones Oficiales" loading="lazy">
                     <h3>Certificaciones</h3>
@@ -166,7 +161,6 @@
                     <button aria-label="Más información sobre Certificaciones">Más info</button>
                 </article>
 
-                <!-- Tarjeta 8 -->
                 <article class="tarjeta">
                     <img src="https://cdn.pixabay.com/photo/2017/05/13/17/45/architecture-2309810_1280.jpg" alt="Servicio de Proyectos a Medida" loading="lazy">
                     <h3>Proyectos</h3>
@@ -179,39 +173,39 @@
         <footer class="footer">
             <div class="footer-section">
                 <h3>Legal</h3>
-                <a href="#" aria-label="Política de Privacidad">Política de Privacidad</a>
-                <a href="#" aria-label="Accesibilidad">Accesibilidad</a>
-                <a href="#" aria-label="Términos y condiciones">Términos y condiciones</a>
-                <a href="#" aria-label="Política de Cookies">Cookies</a>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Accesibilidad</a>
+                <a href="#">Términos y condiciones</a>
+                <a href="#">Política de Cookies</a>
             </div>
 
             <div class="footer-section">
                 <h3>Enlaces Rápidos</h3>
-                <a href="#inicio" onclick="mostrarSeccion('nosotros')" aria-label="Ir a Inicio">Inicio</a>
-                <a href="#nosotros" onclick="mostrarSeccion('nosotros')" aria-label="Ir a Nosotros">Sobre Nosotros</a>
-                <a href="#servicios" onclick="mostrarSeccion('productos')" aria-label="Ir a Servicios">Servicios</a>
-                <a href="#contacto" aria-label="Ir a Contacto">Contacto</a>
+                <a href="#" onclick="mostrarSeccion('nosotros')">Inicio</a>
+                <a href="#" onclick="mostrarSeccion('nosotros')">Sobre Nosotros</a>
+                <a href="#" onclick="mostrarSeccion('productos')">Servicios</a>
+                <a href="#">Contacto</a>
             </div>
 
             <div class="footer-section">
                 <h3>Contacto</h3>
-                <p><a href="mailto:info@gasservicios.com" aria-label="Enviar email a info@gasservicios.com">info@gasservicios.com</a></p>
-                <p><a href="tel:+34900000000" aria-label="Llamar al 900 000 000">+34 900 000 000</a></p>
+                <p><a href="mailto:info@gasservicios.com">info@gasservicios.com</a></p>
+                <p><a href="tel:+34900000000">+34 900 000 000</a></p>
                 <p>Calle Principal 123, Madrid</p>
             </div>
 
             <div class="footer-section">
                 <h3>Servicios</h3>
-                <p><a href="mailto:servicios@gasservicios.com" aria-label="Enviar email a servicios@gasservicios.com">servicios@gasservicios.com</a></p>
-                <p><a href="tel:+34900111111" aria-label="Llamar al 900 111 111">+34 900 111 111</a></p>
+                <p><a href="mailto:servicios@gasservicios.com">servicios@gasservicios.com</a></p>
+                <p><a href="tel:+34900111111">+34 900 111 111</a></p>
                 <p>Atención 24/7</p>
             </div>
 
             <div class="footer-section">
                 <h3>Portfolio</h3>
-                <a href="#" aria-label="Ver proyectos residenciales">Proyectos residenciales</a>
-                <a href="#" aria-label="Ver proyectos industriales">Proyectos industriales</a>
-                <a href="#" aria-label="Ver certificaciones">Certificaciones</a>
+                <a href="#">Proyectos residenciales</a>
+                <a href="#">Proyectos industriales</a>
+                <a href="#">Certificaciones</a>
             </div>
 
             <div class="footer-section">
@@ -239,12 +233,8 @@
         </footer>
     </div>
 
-    <!-- ======================================
-                     JAVASCRIPT
-         ====================================== -->
-         
-         <script src="./assets/js/script.js"></script>
+  
 
-
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
