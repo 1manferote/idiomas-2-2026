@@ -6,36 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="GasServicios - Soluciones profesionales en instalaciones y mantenimiento de gas">
     <title>servicios</title>
-    <!--
-    <link rel="stylesheet" href="./assets/css/seccion_ingles.css">
-    <link rel="stylesheet" href="./assets/css/servicios.css"> -->
+   
+    
 
-    <link rel="stylesheet" href="./assets/css/servicios2.css">
+    <link rel="stylesheet" href="./assets/css/estilos.css">
 
 </head>
 
 <body>
     <div class="contenedor">
         <header>
-            <a href="index.html" class="logo-container" aria-label="GasServicios - Página principal">
-                <img src="https://cdn.pixabay.com/photo/2014/12/26/10/50/flame-580342_1280.jpg" alt="Logo GasServicios" class="logo-img" loading="lazy">
+            <a href="#" class="logo-container" aria-label="GasServicios - Página principal">
+                <img src="https://cdn.pixabay.com/photo/2014/12/26/10/50/flame-580342_1280.jpg" alt="Logo GasServicios - Llama" class="logo-img" loading="lazy">
                 <h1>GasServicios</h1>
             </a>
-            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar modo de visualización">
-                <span aria-hidden="true">🌙</span>
-            </button>
+            <div class="header-buttons">
+                <button class="hamburger" id="hamburgerBtn" aria-label="Menú de navegación">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambiar modo de visualización">
+                    <span aria-hidden="true">🌙</span>
+                </button>
+            </div>
         </header>
 
-        <nav aria-label="Navegación principal">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="nosotros.html">Nosotros</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
+        <!-- Overlay para cerrar el menú -->
+        <div class="menu-overlay" id="menuOverlay"></div>
+
+            <nav aria-label="Navegación principal">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+
 
         <main>
             <div class="botones" role="tablist">
@@ -81,15 +91,58 @@
                 <div class="verb-grid" id="verb-container"></div>
 
                 <h3 class="sub-title">Objetos y Posesivos (Contexto GasServicios)</h3>
-                <div class="pronoun-grid" id="pronoun-container"></div>
+                <div class="pronoun-grid" id="pronoun-container">
+                    </div>
 
                 <article class="examples-strip" id="examples-box">
                     <h2>💡 Frases de Uso Técnico</h2>
-                    <div id="tech-container" class="pronoun-grid"></div>
                 </article>
             </section>
+
+             <!-- Sección de Objetos y Posesivos - Acordeón -->
+        <section class="pronouns-section">
+            <h2 class="section-title">📚 Objetos y Posesivos en Inglés</h2>
+            <p class="section-description">Haz clic en cada frase para escuchar su pronunciación y ver la traducción.</p>
+            
+            <div class="accordion-container">
+                <div class="accordion-category">
+                    <div class="accordion-header">
+                        <h3>🔹 Object Pronouns (Pronombres Objeto)</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content" id="object-pronouns">
+                        <div class="phrase-grid"></div>
+                    </div>
+                </div>
+
+                <div class="accordion-category">
+                    <div class="accordion-header">
+                        <h3>🔹 Possessive Pronouns (Pronombres Posesivos)</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content" id="possessive-pronouns">
+                        <div class="phrase-grid"></div>
+                    </div>
+                </div>
+
+                <div class="accordion-category">
+                    <div class="accordion-header">
+                        <h3>🔹 Possessive Adjectives (Adjetivos Posesivos)</h3>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content" id="possessive-adjectives">
+                        <div class="phrase-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         </main>
 
+       
+        <!-- =============================
+                       FOOTER                    
+             ============================= -->
         <footer class="footer">
             <div class="footer-section">
                 <h3>Legal</h3>
@@ -153,6 +206,10 @@
         </footer>
     </div>
 
-  <script src="./assets/js/script_ingles_pronombres_completos.js"></script>
+    <script src="./assets/js/script.js"></script>
+   
+
+    <script src="./assets/js/script.js"></script>
+
 </body>
 </html>
