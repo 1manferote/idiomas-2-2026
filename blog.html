@@ -10,38 +10,35 @@
 <body>
     <div class="contenedor">
         <header>
-            <a href="index.html" class="logo-container" aria-label="GasServicios - Página principal">
+            <a href="#" class="logo-container" aria-label="GasServicios - Página principal">
                 <img src="https://cdn.pixabay.com/photo/2014/12/26/10/50/flame-580342_1280.jpg" alt="Logo GasServicios - Llama" class="logo-img" loading="lazy">
                 <h1>GasServicios</h1>
             </a>
-            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar modo de visualización">
-                <span aria-hidden="true">🌙</span>
-            </button>
+            <div class="header-buttons">
+                <button class="hamburger" id="hamburgerBtn" aria-label="Menú de navegación">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambiar modo de visualización">
+                    <span aria-hidden="true">🌙</span>
+                </button>
+            </div>
         </header>
 
-        <!--
-        <nav aria-label="Navegación principal">
-            <ul>
-                <li><a href="#inicio" onclick="mostrarSeccion('inicio')">Inicio</a></li>
-                <li><a href="#servicios" onclick="mostrarSeccion('servicios')">Servicios</a></li>
-                <li><a href="#portfolio" onclick="mostrarSeccion('portfolio')">Portfolio</a></li>
-                <li><a href="#blog" onclick="mostrarSeccion('blog')">Blog</a></li>
-                <li><a href="#contacto" onclick="mostrarSeccion('contacto')">Contacto</a></li>
-            </ul>
-        </nav>
+        <!-- Overlay para cerrar el menú -->
+        <div class="menu-overlay" id="menuOverlay"></div>
 
-
-         -->
-         <nav aria-label="Navegación principal">
-            <ul>
-                <li><a href="index.html" target="miSitio">Inicio</a></li>
-                <li><a href="nosotros.html" target="miSitio">Nosotros</a></li>
-                <li><a href="servicios.html" target="miSitio">Servicios</a></li>
-                <li><a href="portfolio.html" target="miSitio">Portfolio</a></li>
-                <li><a href="#blog.html" target="miSitio">Blog</a></li>
-                <li><a href="contacto.html" target="miSitio">Contacto</a></li>
-            </ul>
-        </nav>
+            <nav aria-label="Navegación principal">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
 
         <!-- Main con botones y secciones -->
         <main>
